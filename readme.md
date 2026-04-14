@@ -37,8 +37,13 @@ You will be prompted to type in your password but it will not show you what you 
 Create the DB locally
 ```
 CREATE DATABASE flask_db;
+CREATE USER username WITH PASSWORD 'password';
+GRANT ALL PRIVILEGES ON DATABASE flask_db TO username;
 ```
-
+Make an .env file to hide your credentials
+```
+DATABASE_URL = postgresql://username:password@localhost/flask_db
+```
 After you setup your database, run the app in the root directory
 ```
 flask --app server.app run
