@@ -21,36 +21,3 @@ Activate the venv
 Download requirements.txt
 ```
 pip install -r requirements.txt
-```
-### Creating a PostgresSQL DB and running Flask in Python
-
-Locate your PostgreSQL bin file path 
-```
-cd "C:\Program Files\PostgreSQL\18\bin"
-```
-Login to PostgreSQL via the terminal 
-```
-psql -U postgres
-```
-You will be prompted to type in your password but it will not show you what you are typing 
-
-Create the DB locally
-```
-CREATE DATABASE flask_db;
-CREATE USER username WITH PASSWORD 'password';
-GRANT ALL PRIVILEGES ON DATABASE flask_db TO username;
-```
-Make an .env file to hide your credentials
-```
-DATABASE_URL = postgresql://username:password@localhost/flask_db
-```
-After you setup your database, run the app in the root directory
-```
-flask --app server.app run
-```
-OR run the app by going into the server directory and running it there
-```
-cd server
-flask run
-```
-At [http://localhost:5000/test-db](http://localhost:5000/test-db), the database will show you if the connection is successful or not.
